@@ -1,5 +1,5 @@
 entrypoint = "main.py"
-modules = ["python-3.10:v18-20230807-322e88b"]
+modules = ["python-3.10", "java-graalvm22.3"]
 
 hidden = [".pythonlibs"]
 
@@ -12,3 +12,29 @@ language = "python3"
 [deployment]
 run = ["python3", "main.py"]
 deploymentTarget = "cloudrun"
+
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Java Program"
+
+[[workflows.workflow]]
+name = "Java Program"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "javac oned.java && java oned"
+
+[workflows.workflow.metadata]
+outputType = "console"
