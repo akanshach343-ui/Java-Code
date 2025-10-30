@@ -31,10 +31,15 @@ args = "Java Program"
 [[workflows.workflow]]
 name = "Java Program"
 author = "agent"
+mode = "parallel"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "javac str.java && java str"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "javac oned.java && java oned"
 
 [workflows.workflow.metadata]
 outputType = "console"

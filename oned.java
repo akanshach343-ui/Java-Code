@@ -17,5 +17,12 @@ public class oned{
         System.out.println();
       }
       System.out.println(Arrays.deepToString(arr));
+
+        int[] arr2=new int[5];
+        System.out.println("enter the elements");
+        for(int i=0; i<arr2.length; i++){
+            arr2[i]=sc.nextInt();
+        }
+        System.out.println(Arrays.toString(arr2));
     }
 }
