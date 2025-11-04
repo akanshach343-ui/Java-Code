@@ -1,4 +1,4 @@
-public class str{
+/*public class str{
   public static void main(String[] args){
     String s1="shruti";
     String s2="You are a good girl  ";
@@ -32,4 +32,21 @@ public class str{
     System.out.println(s1.charAt(3));
   }
   
-} 
+} */
+
+public class str{
+  public static void main(String[] args){
+    String s1="shruti";
+    System.out.println(System.identityHashCode(s1));
+    s1+="kumari";
+    System.out.println(System.identityHashCode(s1));
+
+    //to create mutable strings we use the stringbuilder class, thus after using hash code we get the same hash code
+    StringBuilder s2=new StringBuilder("ram");
+    System.out.println(System.identityHashCode(s2));
+    s2.append("shyam");
+    System.out.println(System.identityHashCode(s2));
+    System.out.println(s2);
+  }
+}
+//unit ends 
