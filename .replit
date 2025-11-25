@@ -38,4 +38,4 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "javac img.java && java img"
+args = "cd \"Unit 4\" && javac creating_Thread.java && java creating_Thread"
