@@ -1,0 +1,77 @@
+// interface Calc{
+//   void calculate();
+// }
+// public class lmda_Exp{
+//   public static void main(String[] args){
+//     // Calc a1= ()->System.out.println("num1+num2");//lambda expression, in js arrow function
+//     Calc a1=()->{
+//       int num1=10; 
+//       int num2=22;
+//       System.out.println("Sum= "+ (num1+num2));
+//     };
+//     a1.calculate();
+//   }
+// }
+//with parameter and return type
+// interface Calc{
+//   void calculate(int n1, int n2);
+// }
+// public class lmda_Exp{
+//   public static void main(String[] args){
+//     // Calc a1= ()->System.out.println("num1+num2");//lambda expression, in js arrow function
+//     Calc a1=(int n, int m)->{
+//       System.out.println("Sum= "+ (n+m));
+//     };
+//     a1.calculate(10,26);
+//   }
+// }
+//with parameter an return type
+// interface Calc{
+//   int  square(int n1);
+// }
+// public class lmda_Exp{
+//   public static void main(String[] args){
+//     // Calc a1= ()->System.out.println("num1+num2");//lambda expression, in js arrow function
+//     Calc a1=(int num)->num*num;
+
+//     System.out.println("sq of number is" + a1.square(30));
+//   }
+// }
+//QUES. SINGLE PARAMETER, NO RETURN TYPE
+class Votermain{
+  void Eligible(int age){
+    if(age>=18){
+      System.out.println("You are eligible to vote");
+    }else{
+      System.out.println("You are not eligible to vote");
+    }
+  }
+  public static void main(String[] args){
+    Votermain v= new Votermain();
+    
+  }
+}
+@FunctionalInterface
+interface CanVote{
+  void Eligible(int age);
+  
+}
+public class lmda_Exp{
+  public static void main(String[] args){
+    CanVote a1=(int age)->{
+      if(age>=18){
+        System.out.println("You are eligible to vote");
+      }else{
+        System.out.println("You are not eligible to vote");
+      }
+    };
+      
+    a1.Eligible(19);
+    //to use same method written in another class with same signature we can use method refencing. 
+    Votermain v= new Votermain();
+    CanVote v1=v::Eligible; //:: is called scope resolution operator
+    v1.Eligible(17);
+  }
+}
+
+
